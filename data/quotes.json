@@ -1,0 +1,66 @@
+{
+  "meta": {
+    "note": "Only verified quotations. 'kind' is one of: verbatim (English original traced to a primary/reputable source), translated (published Vietnamese edition; no English original verified), paraphrase (clearly marked as such on the page).",
+    "lastUpdated": "2026-07-31"
+  },
+  "quotes": [
+    {
+      "id": "q-associates",
+      "kind": "verbatim",
+      "vi": "Hãy chăm sóc nhân viên của bạn thật tốt, rồi họ sẽ chăm sóc khách hàng của bạn thật tốt, và khách hàng sẽ quay lại.",
+      "en": "Take good care of your employees, and they'll take good care of your customers, and the customers will come back.",
+      "speaker": "J. Willard Marriott Sr.",
+      "context": "Câu nói của người cha, không phải của Bill. Ông nghe nó gần như mỗi ngày suốt thời niên thiếu và dành cả sự nghiệp để chứng minh nó đúng ở quy mô toàn cầu.",
+      "caveat": "Câu này lưu truyền qua lời nói nên tồn tại nhiều dị bản; bản thân trang web của Marriott dùng một cách diễn đạt ngắn hơn.",
+      "sources": [22, 23]
+    },
+    {
+      "id": "q-listen",
+      "kind": "verbatim",
+      "vi": "Đó chính là tầm quan trọng của việc lắng nghe, và của việc đừng tưởng mình đã biết hết. Hãy luôn cố tìm xem người kia đang nghĩ gì, rồi làm việc cùng họ — và có thể cả hai bên đều được điều mình muốn.",
+      "en": "That's the importance of listening and not thinking you know it all. Always try to find out what's on the other person's mind, and work with them, and you both might get what you want.",
+      "speaker": "J.W. \"Bill\" Marriott Jr.",
+      "context": "Trích The Spirit to Serve: Marriott's Way (1997).",
+      "sources": [4]
+    },
+    {
+      "id": "q-250",
+      "kind": "verbatim",
+      "vi": "Mỗi năm tôi đi thăm 250 khách sạn trên khắp thế giới.",
+      "en": "I visit 250 hotels around the world every year.",
+      "speaker": "J.W. \"Bill\" Marriott Jr.",
+      "context": "Ông duy trì nhịp này đến tận tuổi tám mươi. Con số thay đổi theo từng năm và từng lần ông kể — có năm hơn 300, có năm khoảng 120.",
+      "caveat": "Các nguồn ghi nhận những con số khác nhau tùy thời điểm phát biểu.",
+      "sources": [24, 25]
+    },
+    {
+      "id": "q-sorenson",
+      "kind": "verbatim",
+      "vi": "Arne là một nhà điều hành xuất chúng — nhưng hơn thế, ông là một con người xuất chúng. Chúng tôi cùng chia sẻ nỗi đau này, và chúng tôi sẽ nhớ Arne rất nhiều.",
+      "en": "Arne was an exceptional executive — but more than that, he was an exceptional human being. We share your heartbreak, and we will miss Arne deeply.",
+      "speaker": "J.W. \"Bill\" Marriott Jr.",
+      "context": "Tháng 2 năm 2021, sau khi Arne Sorenson qua đời. Bill khi đó 88 tuổi và vừa mất người ông đã chọn để kế nhiệm mình.",
+      "caveat": "Ghép từ hai câu liền nhau trong cùng một thông cáo của công ty.",
+      "sources": [12, 17]
+    },
+    {
+      "id": "q-hotelbusiness",
+      "kind": "translated",
+      "vi": "“Con muốn điều hành khách sạn mới.” — “Nhưng con có biết gì về ngành khách sạn đâu.” — “Quanh đây cũng có ai biết đâu.” — “Được thôi. Làm đi.”",
+      "en": null,
+      "speaker": "Bill Marriott và cha, J. Willard Marriott Sr., 1956",
+      "context": "Đoạn đối thoại quyết định hướng đi của cả công ty, theo lời kể của chính Bill trong cuốn tiểu sử được ủy quyền của Dale Van Atta.",
+      "caveat": "Dịch từ bản tiếng Việt của cuốn tiểu sử; chúng tôi chưa đối chiếu được nguyên văn tiếng Anh.",
+      "sources": [1]
+    },
+    {
+      "id": "q-successfinal",
+      "kind": "verbatim",
+      "vi": "Thành công không bao giờ là điểm dừng.",
+      "en": "Success is never final.",
+      "speaker": "Gia đình Marriott",
+      "context": "Điều nhà Marriott dạy con cái, và là nhan đề cuốn tiểu sử được ủy quyền năm 2019.",
+      "sources": [1, 4]
+    }
+  ]
+}

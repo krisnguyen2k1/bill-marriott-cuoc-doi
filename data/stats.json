@@ -1,0 +1,75 @@
+{
+  "meta": {
+    "note": "Every figure carries an explicit as-of date and source. Do not update a number without updating asOf and sources.",
+    "lastUpdated": "2026-07-31"
+  },
+  "stats": [
+    {
+      "value": 9800,
+      "prefix": "hơn ",
+      "suffix": "",
+      "label": "khách sạn trên toàn cầu",
+      "asOf": "31/12/2025",
+      "sources": [21]
+    },
+    {
+      "value": 1.78,
+      "decimals": 2,
+      "prefix": "gần ",
+      "suffix": " triệu",
+      "label": "phòng",
+      "asOf": "31/12/2025",
+      "sources": [21]
+    },
+    {
+      "value": 145,
+      "prefix": "",
+      "suffix": "",
+      "label": "quốc gia và vùng lãnh thổ",
+      "asOf": "31/12/2025",
+      "sources": [21]
+    },
+    {
+      "value": 30,
+      "prefix": "hơn ",
+      "suffix": "",
+      "label": "thương hiệu trong danh mục",
+      "asOf": "2025",
+      "sources": [13, 21]
+    },
+    {
+      "value": 414000,
+      "prefix": "khoảng ",
+      "suffix": "",
+      "label": "nhân sự do Marriott quản lý",
+      "asOf": "31/12/2025",
+      "note": "Gồm khoảng 148.000 người do Marriott trực tiếp tuyển dụng và khoảng 266.000 người do chủ khách sạn tuyển nhưng Marriott quản lý.",
+      "sources": [26]
+    },
+    {
+      "value": 66,
+      "prefix": "",
+      "suffix": "",
+      "label": "năm ông gắn bó với công ty",
+      "asOf": "1956–2022",
+      "sources": [2, 18]
+    },
+    {
+      "value": 13.6,
+      "decimals": 1,
+      "prefix": "",
+      "suffix": " tỉ USD",
+      "label": "giá thương vụ Starwood, 2016",
+      "asOf": "23/9/2016",
+      "sources": [13, 14]
+    },
+    {
+      "value": 21000,
+      "prefix": "hơn ",
+      "suffix": "",
+      "label": "người trẻ khuyết tật được chương trình Bridges đưa vào việc làm",
+      "asOf": "2025",
+      "sources": [10]
+    }
+  ]
+}

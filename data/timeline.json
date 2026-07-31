@@ -1,0 +1,272 @@
+{
+  "meta": {
+    "note": "Vietnamese user-facing content. Keys in English. Sources cited by number, see SOURCES.md.",
+    "lastUpdated": "2026-07-31"
+  },
+  "eras": [
+    { "id": "goc-re", "label": "Gốc rễ", "range": "1927–1954" },
+    { "id": "canh-bac", "label": "Canh bạc", "range": "1955–1971" },
+    { "id": "de-che", "label": "Dựng đế chế", "range": "1972–1999" },
+    { "id": "toan-cau", "label": "Toàn cầu", "range": "2000–2016" },
+    { "id": "trao-lai", "label": "Trao lại", "range": "2017–nay" }
+  ],
+  "events": [
+    {
+      "year": "1927",
+      "era": "goc-re",
+      "title": "Chín chiếc ghế trên phố Fourteenth",
+      "text": "J. Willard Marriott và Alice Sheets mở một quầy bia gốc A&W ở Washington D.C. Mùa đông đến, đồ uống lạnh ế ẩm, họ thêm món ăn nóng kiểu Tex-Mex vào thực đơn và đổi tên thành Hot Shoppes.",
+      "detail": "Alice Sheets Marriott không phải người vợ đứng sau. Bà giữ sổ sách, nấu bếp, và trong nhiều thập niên là thành viên hội đồng quản trị. Phần lớn tài liệu doanh nghiệp gọi bà là đồng sáng lập.",
+      "sources": [1, 5]
+    },
+    {
+      "year": "1932",
+      "era": "goc-re",
+      "title": "Bill chào đời",
+      "text": "John Willard Marriott Jr. sinh ngày 25 tháng 3 tại Washington D.C., giữa lúc Đại Suy thoái đang ở đáy sâu nhất.",
+      "sources": [1, 2]
+    },
+    {
+      "year": "1937",
+      "era": "goc-re",
+      "title": "Bữa ăn phục vụ tận xe",
+      "text": "Hot Shoppes bắt đầu giao suất ăn cho hành khách tại sân bay Hoover Field — tiền thân của mảng suất ăn hàng không sẽ nuôi công ty suốt bốn thập niên.",
+      "sources": [5]
+    },
+    {
+      "year": "1946",
+      "era": "goc-re",
+      "title": "Cậu bé sau quầy",
+      "text": "Từ tuổi thiếu niên, Bill làm mọi vị trí trong chuỗi nhà hàng của cha: rửa bát, nướng bánh, đứng quầy. Tiêu chuẩn của người cha khắt khe đến mức ám ảnh — món nóng phải nóng bỏng lưỡi, món nguội phải mát lạnh.",
+      "sources": [1]
+    },
+    {
+      "year": "1954",
+      "era": "goc-re",
+      "title": "Đại học Utah",
+      "text": "Tốt nghiệp ngành tài chính ngân hàng tại Đại học Utah. Cùng năm, ông gia nhập Hải quân Hoa Kỳ.",
+      "sources": [1, 2]
+    },
+    {
+      "year": "1955",
+      "era": "canh-bac",
+      "title": "USS Randolph và Donna",
+      "text": "Sĩ quan tiếp liệu trên tàu sân bay USS Randolph, phụ trách hậu cần cho hàng nghìn thủy thủ ở Địa Trung Hải. Ngày 29 tháng 6, ông kết hôn với Donna Rae Garff tại Đền thờ Salt Lake.",
+      "detail": "Ông nói việc nuôi ăn cả một con tàu đã dạy ông điều mà trường kinh doanh không dạy: quy mô là một bài toán của kỷ luật, không phải của cảm hứng.",
+      "sources": [1, 3]
+    },
+    {
+      "year": "1956",
+      "era": "canh-bac",
+      "title": "Về với công ty gia đình",
+      "text": "Rời Hải quân, Bill vào làm ở mảng dịch vụ thức ăn của Hot Shoppes. Ông không có ý định ở lại lâu.",
+      "sources": [1]
+    },
+    {
+      "year": "1957",
+      "era": "canh-bac",
+      "title": "Twin Bridges — canh bạc đầu tiên",
+      "text": "Ngày 16 tháng 1, khách sạn motor Twin Bridges mở cửa ở Arlington, bang Virginia. Khoảng 365 phòng, 9 USD một đêm, khách nhận chìa khóa ngay trên xe rồi theo một cậu phục vụ đạp xe dẫn về phòng.",
+      "detail": "Người cha hoài nghi. Bill xin được điều hành. “Nhưng con có biết gì về ngành khách sạn đâu,” ông cụ nói. “Quanh đây cũng có ai biết đâu,” Bill đáp. “Được thôi — làm đi.”",
+      "sources": [1, 6, 7]
+    },
+    {
+      "year": "1964",
+      "era": "canh-bac",
+      "title": "Chủ tịch ở tuổi 32",
+      "text": "Bill được bổ nhiệm làm chủ tịch Marriott Corporation. Công ty khi đó có 120 nhà hàng và 4 khách sạn.",
+      "sources": [1, 2]
+    },
+    {
+      "year": "1967",
+      "era": "canh-bac",
+      "title": "Đổi tên",
+      "text": "Hot Shoppes, Inc. chính thức trở thành Marriott Corporation — dấu hiệu rằng khách sạn, chứ không phải nhà hàng, mới là tương lai.",
+      "sources": [5]
+    },
+    {
+      "year": "1969",
+      "era": "canh-bac",
+      "title": "Ra khỏi nước Mỹ",
+      "text": "Khách sạn Marriott đầu tiên ngoài Hoa Kỳ mở tại Acapulco, Mexico.",
+      "sources": [5]
+    },
+    {
+      "year": "1972",
+      "era": "de-che",
+      "title": "Tổng giám đốc",
+      "text": "Bill trở thành CEO của Marriott Corporation. Người cha vẫn giữ ghế chủ tịch hội đồng quản trị — và vẫn phản đối phần lớn những quyết định táo bạo của con trai.",
+      "sources": [1, 2]
+    },
+    {
+      "year": "1975",
+      "era": "de-che",
+      "title": "Châu Âu",
+      "text": "Khách sạn Marriott đầu tiên ở châu Âu khai trương tại Amsterdam.",
+      "sources": [5]
+    },
+    {
+      "year": "1976",
+      "era": "de-che",
+      "title": "Hai công viên giải trí",
+      "text": "Marriott mở hai công viên Great America. Một nhánh rẽ tốn kém mà sau này Bill thừa nhận là sai lầm — công ty bán chúng đi trong thập niên 1980.",
+      "detail": "Ông ít khi tô hồng những nước cờ hỏng của mình. Trong hồi ký, ông xếp công viên giải trí vào nhóm “việc chúng tôi không nên làm”.",
+      "sources": [1, 4]
+    },
+    {
+      "year": "1978",
+      "era": "de-che",
+      "title": "Mua lại Host International",
+      "text": "Thương vụ đưa Marriott vào mảng dịch vụ ăn uống sân bay ở quy mô lớn. Bill gọi đây là một trong những món hời nhất đời mình. Cha ông chúc mừng — hiếm hoi.",
+      "sources": [1]
+    },
+    {
+      "year": "1983",
+      "era": "de-che",
+      "title": "Courtyard by Marriott",
+      "text": "Tháng 6, thương hiệu Courtyard ra mắt sau ba năm nghiên cứu bí mật, với một khách sạn mẫu dựng ngay trong khuôn viên Gaithersburg Marriott. Đây là lần đầu một tập đoàn khách sạn thiết kế cả một thương hiệu từ dữ liệu khách hàng thay vì từ trực giác.",
+      "detail": "Ý tưởng cốt lõi: khách công tác không cần phòng khiêu vũ và nhà hàng đặc sản. Họ cần một phòng ngủ tốt với giá hợp lý. Courtyard mở ra khái niệm phân khúc thương hiệu (brand segmentation) mà cả ngành sau đó sao chép.",
+      "sources": [1, 5]
+    },
+    {
+      "year": "1984",
+      "era": "de-che",
+      "title": "Bán tòa nhà, giữ lấy cái tên",
+      "text": "Marriott công bố chiến lược chỉ sở hữu khoảng 25% số khách sạn mang tên mình. 75% còn lại do người khác xây và sở hữu, nhưng mang thương hiệu và do Marriott vận hành.",
+      "detail": "Đây là bước ngoặt chiến lược quan trọng nhất trong sự nghiệp của ông: chuyển từ kinh doanh bất động sản sang kinh doanh thương hiệu và năng lực vận hành. J.W. Marriott Sr. hoang mang. Thị trường thì hiểu ngay.",
+      "sources": [1, 8]
+    },
+    {
+      "year": "1985",
+      "era": "de-che",
+      "title": "Mất cha, rồi suýt mất mạng",
+      "text": "Ngày 13 tháng 8, J. Willard Marriott Sr. qua đời. Mười một ngày sau, sáng thứ Bảy 24 tháng 8, hơi xăng tích tụ trong nhà thuyền bên hồ Winnipesaukee bắt lửa từ một công tắc đánh lửa hỏng. Bill bị bỏng độ ba trên phần lớn cơ thể.",
+      "detail": "Ông kể rằng giữa ngọn lửa, ông nghe một giọng nói rõ ràng: “Nhảy khỏi tàu đi.” Ông nhảy. Nhiều tuần nằm viện sau đó đã định hình lại cách ông nghĩ về thời gian, đức tin và việc mình còn ở đây để làm gì.",
+      "sources": [1, 9]
+    },
+    {
+      "year": "1985",
+      "era": "de-che",
+      "title": "Chủ tịch hội đồng quản trị",
+      "text": "Sau khi cha qua đời, Bill kiêm luôn ghế chủ tịch. Lần đầu tiên sau 29 năm, không còn ai ở trên ông để nói “không”.",
+      "sources": [1, 2]
+    },
+    {
+      "year": "1987",
+      "era": "de-che",
+      "title": "Residence Inn và Fairfield Inn",
+      "text": "Marriott mua Residence Inn (lưu trú dài ngày) và ra mắt Fairfield Inn (phân khúc tiết kiệm). Danh mục thương hiệu bắt đầu phủ kín các tầng giá.",
+      "sources": [5]
+    },
+    {
+      "year": "1989",
+      "era": "de-che",
+      "title": "Quỹ Marriott vì Người khuyết tật",
+      "text": "Gia đình lập Marriott Foundation for People with Disabilities. Chương trình Bridges from School to Work sau này đưa hơn 21.000 người trẻ khuyết tật vào việc làm thực thụ.",
+      "sources": [10]
+    },
+    {
+      "year": "1990",
+      "era": "de-che",
+      "title": "Suýt mất công ty",
+      "text": "Suy thoái bất động sản và cú sụp của thị trường tài chính Nhật Bản khiến Marriott ôm hàng tỉ đô-la khách sạn xây xong không bán được. Đây là giai đoạn nguy hiểm nhất trong lịch sử công ty.",
+      "sources": [1]
+    },
+    {
+      "year": "1993",
+      "era": "de-che",
+      "title": "Cuộc chia tách",
+      "text": "Marriott tách làm đôi: Marriott International giữ thương hiệu, hợp đồng quản lý và nhượng quyền; Host Marriott giữ bất động sản và phần lớn nợ. Trái chủ kiện. Nhưng cấu trúc “nhẹ tài sản” từ đó trở thành mô hình chuẩn của toàn ngành.",
+      "detail": "Ý tưởng đến từ giám đốc tài chính Stephen Bollenbach. Bill nhìn ra triển vọng gần như ngay lập tức.",
+      "sources": [1, 8]
+    },
+    {
+      "year": "1995",
+      "era": "de-che",
+      "title": "Ritz-Carlton",
+      "text": "Marriott mua 49% cổ phần The Ritz-Carlton, bước chân đầu tiên vào phân khúc siêu sang. Phần còn lại được mua trong những năm sau đó.",
+      "sources": [5]
+    },
+    {
+      "year": "1997",
+      "era": "de-che",
+      "title": "Renaissance và một cuốn sách",
+      "text": "Marriott mua Renaissance Hotel Group với khoảng 1 tỉ USD. Cùng năm, Bill xuất bản The Spirit to Serve: Marriott's Way — bản trình bày hệ thống nhất về triết lý quản trị của ông.",
+      "sources": [4, 5]
+    },
+    {
+      "year": "2001",
+      "era": "toan-cau",
+      "title": "Ngày 11 tháng 9",
+      "text": "Khách sạn Marriott World Trade Center nằm giữa hai tòa tháp bị san phẳng. Nhân viên khách sạn ở lại hướng dẫn khách và lính cứu hỏa thoát ra ngoài; một số không trở về.",
+      "sources": [1]
+    },
+    {
+      "year": "2003",
+      "era": "toan-cau",
+      "title": "Marriott on the Move",
+      "text": "Bill mở blog cá nhân — một trong những CEO đầu tiên của nhóm Fortune 500 làm việc này. Ông tự đọc bình luận và tự trả lời. Blog duy trì hơn một thập niên.",
+      "sources": [11]
+    },
+    {
+      "year": "2012",
+      "era": "toan-cau",
+      "title": "Người ngoài dòng họ",
+      "text": "Arne Sorenson trở thành CEO — người đầu tiên không mang họ Marriott giữ vị trí này. Bill lui về ghế chủ tịch điều hành.",
+      "detail": "Sorenson đến với Marriott từ nghề luật sư, qua vụ kiện chia tách năm 1993. Bill đã vận động hơn một năm để kéo ông về.",
+      "sources": [1, 12]
+    },
+    {
+      "year": "2013",
+      "era": "toan-cau",
+      "title": "Mất Stephen",
+      "text": "Con trai thứ hai của ông, Stephen Garff Marriott, qua đời ở tuổi 54 vì bệnh ty thể. Cùng năm, Bill xuất bản Without Reservations.",
+      "sources": [2, 4]
+    },
+    {
+      "year": "2016",
+      "era": "toan-cau",
+      "title": "Starwood",
+      "text": "Ngày 23 tháng 9, Marriott hoàn tất việc mua Starwood Hotels & Resorts với khoảng 13,6 tỉ USD sau cuộc đấu giá với tập đoàn Anbang của Trung Quốc. Marriott trở thành công ty khách sạn lớn nhất thế giới.",
+      "detail": "Anbang từng nâng giá lên khoảng 14 tỉ USD rồi rút lui sau ba ngày. Thương vụ đưa về 30 thương hiệu, hơn 5.800 khách sạn và khoảng 1,1 triệu phòng tại hơn 110 quốc gia.",
+      "sources": [13, 14]
+    },
+    {
+      "year": "2018",
+      "era": "trao-lai",
+      "title": "Vụ rò rỉ dữ liệu Starwood",
+      "text": "Tháng 11, Marriott công bố hệ thống đặt phòng cũ của Starwood đã bị xâm nhập từ năm 2014. Ước tính ban đầu 500 triệu khách, sau điều chỉnh còn khoảng 383 triệu. Marriott bị Anh phạt 18,4 triệu bảng và năm 2024 chi 52 triệu USD dàn xếp với 49 bang.",
+      "detail": "Lỗ hổng có từ trước khi Marriott mua Starwood — nhưng nó phơi bày một thực tế: hệ thống của bên bị mua là rủi ro của bên đi mua.",
+      "sources": [15, 16]
+    },
+    {
+      "year": "2021",
+      "era": "trao-lai",
+      "title": "Arne Sorenson qua đời",
+      "text": "Ngày 15 tháng 2, Sorenson mất vì ung thư tuyến tụy ở tuổi 62, giữa lúc đại dịch đang tàn phá ngành khách sạn. Anthony Capuano được bổ nhiệm CEO tám ngày sau.",
+      "detail": "Bill nói về ông: “Một nhà điều hành xuất chúng, nhưng hơn thế, một con người xuất chúng.”",
+      "sources": [12, 17]
+    },
+    {
+      "year": "2022",
+      "era": "trao-lai",
+      "title": "Chủ tịch danh dự",
+      "text": "Ngày 6 tháng 5, sau 66 năm gắn bó với công ty, Bill rời ghế chủ tịch hội đồng quản trị. Con trai ông, David Marriott, kế nhiệm. Bill trở thành Chủ tịch danh dự (Chairman Emeritus).",
+      "sources": [2, 18]
+    },
+    {
+      "year": "2025",
+      "era": "trao-lai",
+      "title": "Donna",
+      "text": "Ngày 30 tháng 12, Donna Rae Garff Marriott qua đời ở tuổi 90, không lâu sau khi hai người kỷ niệm 70 năm ngày cưới.",
+      "sources": [19, 20]
+    },
+    {
+      "year": "2026",
+      "era": "trao-lai",
+      "title": "Những con số ông để lại",
+      "text": "Marriott International khép lại năm 2025 với hơn 9.800 khách sạn, gần 1,78 triệu phòng tại 145 quốc gia và vùng lãnh thổ. Bill Marriott bước sang tuổi 94.",
+      "sources": [21]
+    }
+  ]
+}

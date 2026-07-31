@@ -1,0 +1,62 @@
+{
+  "meta": {
+    "note": "Illustrative subset of the Marriott Bonvoy portfolio, grouped by the segmentation logic Bill Marriott pioneered with Courtyard in 1983. Tier labels follow Marriott's own Luxury / Premium / Select / Longer-stay taxonomy.",
+    "lastUpdated": "2026-07-31"
+  },
+  "tiers": [
+    {
+      "id": "luxury",
+      "label": "Cao cấp nhất",
+      "en": "Luxury",
+      "blurb": "Phân khúc Marriott bước vào muộn nhất và bằng cách mua lại, không phải tự dựng.",
+      "brands": [
+        { "name": "The Ritz-Carlton", "year": "1995", "note": "Mua 49% cổ phần năm 1995, sau đó mua tiếp phần còn lại." },
+        { "name": "St. Regis", "year": "2016", "note": "Về theo thương vụ Starwood." },
+        { "name": "W Hotels", "year": "2016", "note": "Về theo thương vụ Starwood. Khách sạn thiết kế, tệp khách trẻ." },
+        { "name": "JW Marriott", "year": "1984", "note": "Đặt theo tên người cha, J. Willard Marriott." },
+        { "name": "The Luxury Collection", "year": "2016", "note": "Về theo thương vụ Starwood." },
+        { "name": "EDITION", "year": "2016", "note": "Hợp tác với Ian Schrager, về theo thương vụ Starwood." }
+      ]
+    },
+    {
+      "id": "premium",
+      "label": "Cao cấp",
+      "en": "Premium",
+      "blurb": "Lõi lợi nhuận truyền thống: khách công tác cấp cao, hội nghị, khách sạn sân bay lớn.",
+      "brands": [
+        { "name": "Marriott Hotels", "year": "1957", "note": "Thương hiệu gốc, khởi đi từ Twin Bridges." },
+        { "name": "Sheraton", "year": "2016", "note": "Về theo thương vụ Starwood." },
+        { "name": "Westin", "year": "2016", "note": "Định vị quanh chủ đề sức khỏe (wellness)." },
+        { "name": "Renaissance", "year": "1997", "note": "Mua lại với khoảng 1 tỉ USD." },
+        { "name": "Le Méridien", "year": "2016", "note": "Về theo thương vụ Starwood." },
+        { "name": "Autograph Collection", "year": "2010", "note": "Tập hợp khách sạn độc lập giữ nguyên bản sắc riêng." }
+      ]
+    },
+    {
+      "id": "select",
+      "label": "Chọn lọc",
+      "en": "Select",
+      "blurb": "Nơi ý tưởng phân khúc thương hiệu bắt đầu — và nơi phần lớn số phòng thực sự nằm.",
+      "brands": [
+        { "name": "Courtyard by Marriott", "year": "1983", "note": "Thương hiệu đầu tiên trên thế giới được thiết kế từ dữ liệu khách hàng." },
+        { "name": "Fairfield by Marriott", "year": "1987", "note": "Phân khúc tiết kiệm, đặt theo tên nông trại của gia đình ở Virginia." },
+        { "name": "SpringHill Suites", "year": "1998", "note": "Phòng suite giá vừa phải." },
+        { "name": "Four Points", "year": "2016", "note": "Về theo thương vụ Starwood." },
+        { "name": "Moxy", "year": "2014", "note": "Nhắm tới khách trẻ, phòng nhỏ, khu vực chung lớn." },
+        { "name": "AC Hotels", "year": "2011", "note": "Liên doanh với AC Hotels của Tây Ban Nha." }
+      ]
+    },
+    {
+      "id": "longstay",
+      "label": "Lưu trú dài ngày",
+      "en": "Longer stay",
+      "blurb": "Phân khúc Marriott mua vào năm 1987 và sau đó thống trị.",
+      "brands": [
+        { "name": "Residence Inn", "year": "1987", "note": "Mua lại; định nghĩa lại khái niệm khách sạn căn hộ ở Mỹ." },
+        { "name": "TownePlace Suites", "year": "1997", "note": "Lưu trú dài ngày, phân khúc trung cấp." },
+        { "name": "Element", "year": "2016", "note": "Về theo thương vụ Starwood; định hướng bền vững." },
+        { "name": "Apartments by Marriott Bonvoy", "year": "2023", "note": "Căn hộ dịch vụ, không quầy lễ tân truyền thống." }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <rect width="1200" height="630" fill="#FBF8F3"/>
+  <rect x="0" y="0" width="1200" height="8" fill="#A20E22"/>
+  <text x="80" y="150" fill="#A20E22" font-family="Helvetica,Arial,sans-serif" font-size="20" font-weight="700" letter-spacing="6">CHAN DUNG</text>
+  <text x="80" y="270" fill="#17130F" font-family="Helvetica,Arial,sans-serif" font-size="104" font-weight="800" letter-spacing="-3">Bill Marriott</text>
+  <text x="80" y="345" fill="#4A423B" font-family="Georgia,serif" font-size="46" font-style="italic">Cuoc doi cua mot nguoi phuc vu</text>
+  <rect x="80" y="395" width="64" height="3" fill="#C9A227"/>
+  <text x="80" y="460" fill="#4A423B" font-family="Helvetica,Arial,sans-serif" font-size="25">Bay thap nien, mot y niem gian di,</text>
+  <text x="80" y="497" fill="#4A423B" font-family="Helvetica,Arial,sans-serif" font-size="25">va tap doan khach san lon nhat the gioi.</text>
+  <text x="80" y="570" fill="#7A6F65" font-family="Helvetica,Arial,sans-serif" font-size="18" letter-spacing="2">1932 &#8212; NAY</text>
+  <rect x="960" y="120" width="150" height="220" rx="14" fill="#6E0B18"/>
+  <text x="1035" y="245" text-anchor="middle" fill="#FBF8F3" font-family="Helvetica,Arial,sans-serif" font-size="42" font-weight="800">JWM</text>
+  <text x="1035" y="290" text-anchor="middle" fill="#C9A227" font-family="Helvetica,Arial,sans-serif" font-size="20" font-weight="600" letter-spacing="4">1957</text>
+</svg>

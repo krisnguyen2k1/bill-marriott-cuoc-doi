@@ -1,0 +1,558 @@
+/* =========================================================================
+   Bill Marriott: Cuộc đời của một người phục vụ
+   Design system + layout. Vanilla CSS, no build step.
+   Typography is Vietnamese-first: every family below ships a `vietnamese`
+   subset and is loaded with subset=vietnamese,latin.
+   ========================================================================= */
+
+/* ---------- 1. Tokens ---------- */
+:root {
+  /* Colour */
+  --ink:            #17130F;
+  --ink-soft:       #4A423B;
+  --ink-faint:      #6E645B;
+  --paper:          #FBF8F3;
+  --paper-2:        #F3EDE4;
+  --paper-3:        #EBE2D5;
+  --marriott-red:   #A20E22;
+  --deep-burgundy:  #6E0B18;
+  --gold:           #C9A227;
+  --rule:           #E2D9CC;
+
+  /* Type */
+  --font-display: 'Be Vietnam Pro', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+  --font-body:    'Lora', 'Times New Roman', Georgia, serif;
+  --font-ui:      'Be Vietnam Pro', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+
+  /* Fluid type scale */
+  --fs-hero:  clamp(2.6rem, 1.4rem + 5.4vw, 6.4rem);
+  --fs-h2:    clamp(1.9rem, 1.25rem + 2.6vw, 3.4rem);
+  --fs-h3:    clamp(1.3rem, 1.1rem + 0.9vw, 1.8rem);
+  --fs-lead:  clamp(1.18rem, 1.06rem + 0.5vw, 1.45rem);
+  --fs-body:  clamp(1.0625rem, 1.0rem + 0.28vw, 1.1875rem); /* 17 → 19px */
+  --fs-small: clamp(0.875rem, 0.85rem + 0.14vw, 0.9375rem);
+  --fs-micro: 0.78rem;
+
+  /* Spacing — 8px scale */
+  --s-1: 0.5rem;  --s-2: 1rem;   --s-3: 1.5rem;  --s-4: 2rem;
+  --s-5: 3rem;    --s-6: 4rem;   --s-7: 6rem;    --s-8: 8rem;
+
+  --measure: 68ch;
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --dur: 320ms;
+  --radius: 3px;
+}
+
+/* ---------- 2. Reset ---------- */
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+body, h1, h2, h3, h4, p, figure, blockquote, dl, dd, ul, ol { margin: 0; padding: 0; }
+ul[role="list"] { list-style: none; }
+img, svg { display: block; max-width: 100%; }
+button, input { font: inherit; color: inherit; }
+
+/* ---------- 3. Base typography ---------- */
+body {
+  font-family: var(--font-body);
+  font-size: var(--fs-body);
+  line-height: 1.8;                 /* never below 1.7 for Vietnamese */
+  letter-spacing: 0.005em;
+  color: var(--ink);
+  background: var(--paper);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+p { text-wrap: pretty; }
+p + p { margin-top: 1.15em; }
+
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  line-height: 1.25;                /* never below 1.2 — tone marks clip */
+  letter-spacing: -0.01em;
+  font-weight: 800;
+  text-wrap: balance;
+}
+h2 { font-size: var(--fs-h2); }
+h3 { font-size: var(--fs-h3); font-weight: 700; letter-spacing: -0.005em; }
+
+a { color: var(--deep-burgundy); text-underline-offset: 0.18em; text-decoration-thickness: 1px; }
+a:hover { color: var(--marriott-red); }
+
+strong { font-weight: 600; }
+em { font-style: italic; }
+
+:focus-visible {
+  outline: 2px solid var(--marriott-red);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* ---------- 4. Utilities ---------- */
+.wrap      { width: min(100% - 2.5rem, 1200px); margin-inline: auto; }
+.measure   { width: min(100% - 2.5rem, var(--measure)); margin-inline: auto; }
+.visually-hidden {
+  position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+}
+.skip-link {
+  position: absolute; top: -100%; left: var(--s-2); z-index: 200;
+  background: var(--ink); color: var(--paper); padding: var(--s-1) var(--s-3);
+  font-family: var(--font-ui); font-size: var(--fs-small); border-radius: var(--radius);
+}
+.skip-link:focus { top: var(--s-2); }
+
+.eyebrow {
+  font-family: var(--font-ui);
+  font-size: var(--fs-micro);
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;        /* short UI label only — safe for VN */
+  color: var(--marriott-red);
+  display: flex; align-items: center; gap: var(--s-2);
+  margin-bottom: var(--s-2);
+}
+.eyebrow::after { content: ""; flex: 1; height: 1px; background: var(--rule); }
+
+.lead {
+  font-size: var(--fs-lead);
+  line-height: 1.72;
+  color: var(--ink-soft);
+}
+
+.cite {
+  font-family: var(--font-ui);
+  font-size: 0.65em;
+  font-weight: 600;
+  vertical-align: super;
+  color: var(--marriott-red);
+  text-decoration: none;
+  padding-inline: 0.12em;
+}
+.cite:hover { text-decoration: underline; }
+
+/* ---------- 5. Reading progress ---------- */
+.progress {
+  position: fixed; inset-block-start: 0; inset-inline-start: 0;
+  height: 3px; width: 100%; z-index: 100;
+  background: transparent; pointer-events: none;
+}
+.progress__bar {
+  height: 100%; width: 0%;
+  background: linear-gradient(90deg, var(--deep-burgundy), var(--marriott-red));
+  transform-origin: left;
+}
+
+/* ---------- 6. Navigation rail ---------- */
+.rail {
+  position: fixed; inset-block-start: 50%; inset-inline-end: var(--s-3);
+  transform: translateY(-50%); z-index: 90;
+  display: none; flex-direction: column; gap: 2px;
+}
+@media (min-width: 1180px) { .rail { display: flex; } }
+
+.rail__item {
+  display: flex; align-items: center; justify-content: flex-end; gap: var(--s-2);
+  background: none; border: 0; cursor: pointer; padding: 5px 0;
+  font-family: var(--font-ui); font-size: 0.72rem; letter-spacing: 0.04em;
+  color: var(--ink-faint);
+}
+.rail__label {
+  opacity: 0; transform: translateX(6px);
+  transition: opacity var(--dur) var(--ease), transform var(--dur) var(--ease);
+  white-space: nowrap;
+}
+.rail__item:hover .rail__label,
+.rail__item:focus-visible .rail__label,
+.rail__item[aria-current="true"] .rail__label { opacity: 1; transform: none; }
+.rail__dash { width: 18px; height: 2px; background: var(--rule); transition: all var(--dur) var(--ease); }
+.rail__item:hover .rail__dash { width: 28px; background: var(--ink-faint); }
+.rail__item[aria-current="true"] .rail__dash { width: 34px; background: var(--marriott-red); }
+.rail__item[aria-current="true"] { color: var(--ink); font-weight: 600; }
+
+/* ---------- 7. Hero ---------- */
+.hero {
+  min-height: 100svh;
+  display: grid; place-items: center;
+  position: relative; overflow: hidden;
+  background: var(--paper-2);
+  padding: var(--s-7) 0 var(--s-6);
+}
+.hero__grain { position: absolute; inset: 0; opacity: 0.5; pointer-events: none; }
+.hero__inner { position: relative; text-align: center; }
+
+.hero__portrait {
+  width: clamp(160px, 22vw, 250px);
+  margin: 0 auto var(--s-4);
+}
+.hero__kicker {
+  font-family: var(--font-ui); font-size: var(--fs-micro); font-weight: 600;
+  letter-spacing: 0.22em; text-transform: uppercase; color: var(--ink-faint);
+  margin-bottom: var(--s-3);
+}
+.hero h1 {
+  font-size: var(--fs-hero);
+  line-height: 1.02;
+  letter-spacing: -0.03em;
+  font-weight: 800;
+}
+.hero h1 .sub {
+  display: block;
+  font-size: 0.32em;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  line-height: 1.35;
+  color: var(--ink-soft);
+  margin-top: var(--s-3);
+}
+.hero__dates {
+  font-family: var(--font-ui); font-size: var(--fs-small); color: var(--ink-faint);
+  margin-top: var(--s-3); letter-spacing: 0.06em;
+}
+.hero__thesis {
+  font-size: var(--fs-lead); color: var(--ink-soft);
+  max-width: 46ch; margin: var(--s-4) auto 0; line-height: 1.7;
+}
+.hero__rule { width: 52px; height: 2px; background: var(--marriott-red); margin: var(--s-4) auto 0; }
+
+.scroll-cue {
+  position: absolute; inset-block-end: var(--s-4); inset-inline: 0;
+  display: flex; flex-direction: column; align-items: center; gap: var(--s-1);
+  font-family: var(--font-ui); font-size: var(--fs-micro);
+  letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-faint);
+}
+.scroll-cue__line {
+  width: 1px; height: 34px;
+  background: linear-gradient(var(--ink-faint), transparent);
+  animation: cue 2.2s var(--ease) infinite;
+}
+@keyframes cue { 0%,100% { opacity: .25; transform: scaleY(.6); } 50% { opacity: 1; transform: scaleY(1); } }
+
+/* ---------- 8. Sections ---------- */
+.section { padding: var(--s-8) 0; position: relative; }
+.section--tint { background: var(--paper-2); }
+.section--deep { background: var(--ink); color: var(--paper); }
+.section--deep h2, .section--deep h3 { color: var(--paper); }
+.section--deep .lead, .section--deep p { color: #D9D1C6; }
+.section--deep .eyebrow { color: var(--gold); }
+.section--deep .eyebrow::after { background: #3A322B; }
+
+.section__head { margin-bottom: var(--s-5); }
+.section__head .lead { margin-top: var(--s-3); max-width: 58ch; }
+
+/* Quiet section — Faith, Family, Loss. Deliberately slower, airier. */
+.section--quiet { padding: calc(var(--s-8) * 1.35) 0; background: var(--paper); }
+.section--quiet p { line-height: 1.95; }
+.section--quiet .measure { --measure: 60ch; }
+.section--quiet h2 { font-weight: 700; letter-spacing: -0.005em; }
+
+/* ---------- 9. Prologue ---------- */
+.prologue { position: relative; }
+.prologue .measure > p:first-of-type::first-letter {
+  float: left;
+  font-family: var(--font-display);
+  font-size: 3.6em;
+  line-height: 0.82;
+  font-weight: 800;
+  color: var(--marriott-red);
+  padding-inline-end: 0.09em;
+  padding-block-start: 0.06em;
+}
+
+/* ---------- 10. Timeline ---------- */
+.timeline { position: relative; }
+.timeline__filters {
+  display: flex; flex-wrap: wrap; gap: var(--s-1);
+  margin-bottom: var(--s-4);
+}
+.chip {
+  font-family: var(--font-ui); font-size: var(--fs-small); font-weight: 500;
+  padding: 0.45em 1em; border: 1px solid var(--rule); border-radius: 100px;
+  background: transparent; color: var(--ink-soft); cursor: pointer;
+  transition: all var(--dur) var(--ease);
+}
+.chip:hover { border-color: var(--ink-faint); }
+.chip[aria-pressed="true"],
+.chip[aria-selected="true"] {
+  background: var(--ink); color: var(--paper); border-color: var(--ink);
+}
+
+.timeline__track {
+  display: flex; gap: var(--s-3);
+  overflow-x: auto; overflow-y: hidden;
+  scroll-snap-type: x mandatory;
+  padding: var(--s-3) 0 var(--s-4);
+  scrollbar-width: thin;
+}
+.timeline__track::-webkit-scrollbar { height: 6px; }
+.timeline__track::-webkit-scrollbar-thumb { background: var(--rule); border-radius: 100px; }
+
+.tl-card {
+  flex: 0 0 clamp(240px, 74vw, 340px);
+  scroll-snap-align: start;
+  background: var(--paper);
+  border: 1px solid var(--rule);
+  border-radius: var(--radius);
+  padding: var(--s-3);
+  text-align: left;
+  cursor: pointer;
+  position: relative;
+  transition: border-color var(--dur) var(--ease), transform var(--dur) var(--ease), box-shadow var(--dur) var(--ease);
+}
+.tl-card:hover { border-color: var(--gold); transform: translateY(-3px); box-shadow: 0 10px 28px rgba(23,19,15,.07); }
+.tl-card__year {
+  font-family: var(--font-ui); font-weight: 700; font-size: 1.55rem;
+  color: var(--marriott-red); letter-spacing: -0.01em; line-height: 1;
+}
+.tl-card__dot {
+  position: absolute; inset-block-start: var(--s-3); inset-inline-end: var(--s-3);
+  width: 7px; height: 7px; border-radius: 50%; background: var(--gold);
+}
+.tl-card h3 { margin: var(--s-2) 0 var(--s-1); font-size: 1.08rem; line-height: 1.35; }
+.tl-card p { font-size: var(--fs-small); line-height: 1.7; color: var(--ink-soft); }
+.tl-card__more {
+  margin-top: var(--s-2); font-family: var(--font-ui); font-size: var(--fs-micro);
+  font-weight: 600; letter-spacing: 0.08em; color: var(--marriott-red);
+  background: none; border: 0; padding: 0.4em 0 0; cursor: pointer;
+  text-align: left; text-transform: uppercase;
+}
+.tl-card__more:hover { color: var(--deep-burgundy); text-decoration: underline; }
+.tl-card__detail {
+  margin-top: var(--s-2); padding-top: var(--s-2);
+  border-top: 1px solid var(--rule);
+  font-size: var(--fs-small); line-height: 1.72; color: var(--ink-soft); font-style: italic;
+}
+.tl-card__detail[hidden] { display: none; }
+.tl-card[data-open="true"] { border-color: var(--gold); }
+
+@media (min-width: 860px) {
+  .tl-card { flex-basis: 320px; }
+}
+.timeline__hint {
+  font-family: var(--font-ui); font-size: var(--fs-micro); color: var(--ink-faint);
+  letter-spacing: 0.06em;
+}
+
+/* ---------- 11. Asset-light diagram ---------- */
+.model {
+  display: grid; gap: var(--s-4);
+  grid-template-columns: 1fr;
+  margin-top: var(--s-5);
+}
+@media (min-width: 800px) { .model { grid-template-columns: 1fr 1fr; gap: var(--s-5); } }
+
+.model__col {
+  border: 1px solid var(--rule);
+  border-radius: var(--radius);
+  padding: var(--s-4);
+  background: var(--paper);
+}
+.model__col--after { border-color: var(--marriott-red); background: #fff; }
+.model__tag {
+  font-family: var(--font-ui); font-size: var(--fs-micro); font-weight: 700;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--ink-faint); margin-bottom: var(--s-2);
+}
+.model__col--after .model__tag { color: var(--marriott-red); }
+.model__col h3 { margin-bottom: var(--s-2); }
+.model__col p { font-size: var(--fs-small); color: var(--ink-soft); line-height: 1.72; }
+.model__list { list-style: none; margin-top: var(--s-3); display: grid; gap: var(--s-1); }
+.model__list li {
+  font-family: var(--font-ui); font-size: var(--fs-small); color: var(--ink-soft);
+  padding-inline-start: 1.25em; position: relative; line-height: 1.6;
+}
+.model__list li::before {
+  content: ""; position: absolute; inset-inline-start: 0; inset-block-start: 0.62em;
+  width: 5px; height: 5px; border-radius: 50%; background: var(--gold);
+}
+
+/* ---------- 12. Brand explorer ---------- */
+.brands__tabs { display: flex; flex-wrap: wrap; gap: var(--s-1); margin-bottom: var(--s-4); }
+.brands__panel { display: none; }
+.brands__panel[data-active="true"] { display: block; }
+.brands__blurb { color: var(--ink-soft); margin-bottom: var(--s-4); max-width: 56ch; }
+.brand-grid {
+  display: grid; gap: var(--s-2);
+  grid-template-columns: repeat(auto-fill, minmax(215px, 1fr));
+}
+.brand-card {
+  border: 1px solid var(--rule); border-radius: var(--radius);
+  padding: var(--s-3); background: var(--paper);
+  transition: border-color var(--dur) var(--ease);
+}
+.brand-card:hover { border-color: var(--gold); }
+.brand-card__name {
+  font-family: var(--font-ui); font-weight: 700; font-size: 1rem;
+  line-height: 1.35; margin-bottom: 0.35em;
+}
+.brand-card__year {
+  font-family: var(--font-ui); font-size: var(--fs-micro); font-weight: 600;
+  letter-spacing: 0.1em; color: var(--marriott-red); display: block; margin-bottom: var(--s-1);
+}
+.brand-card__note { font-size: var(--fs-small); color: var(--ink-soft); line-height: 1.62; }
+
+/* ---------- 13. Starwood chart ---------- */
+.deal-chart { margin-top: var(--s-5); }
+.deal-row { margin-bottom: var(--s-3); }
+.deal-row__head {
+  display: flex; justify-content: space-between; align-items: baseline; gap: var(--s-2);
+  font-family: var(--font-ui); font-size: var(--fs-small); margin-bottom: 0.4em;
+}
+.deal-row__who { font-weight: 600; }
+.deal-row__val { font-weight: 700; color: var(--marriott-red); font-variant-numeric: tabular-nums; }
+.deal-row__bartrack { height: 10px; background: var(--paper-3); border-radius: 100px; overflow: hidden; }
+.deal-row__bar {
+  height: 100%; width: 0; border-radius: 100px;
+  background: linear-gradient(90deg, var(--deep-burgundy), var(--marriott-red));
+  transition: width 900ms var(--ease);
+}
+.deal-row--out .deal-row__bar { background: var(--ink-faint); opacity: 0.55; }
+.deal-row--out .deal-row__val { color: var(--ink-faint); }
+.deal-row__note {
+  font-family: var(--font-ui); font-size: var(--fs-micro); color: var(--ink-faint);
+  margin-top: 0.4em; line-height: 1.5;
+}
+
+/* ---------- 14. Pull quotes ---------- */
+.pullquote {
+  margin: var(--s-6) auto; max-width: 46ch; text-align: center; position: relative;
+}
+.pullquote__mark {
+  font-family: var(--font-display); font-size: 4rem; line-height: 0.6;
+  color: var(--gold); opacity: 0.4; display: block; margin-bottom: var(--s-2);
+}
+.pullquote__vi {
+  font-family: var(--font-body); font-size: clamp(1.25rem, 1.05rem + 0.95vw, 1.7rem);
+  line-height: 1.62; font-style: italic; color: var(--ink);
+}
+.pullquote__en {
+  font-family: var(--font-ui); font-size: var(--fs-small); line-height: 1.65;
+  color: var(--ink-faint); margin-top: var(--s-3); font-style: normal;
+}
+.pullquote__by {
+  font-family: var(--font-ui); font-size: var(--fs-micro); font-weight: 600;
+  letter-spacing: 0.14em; text-transform: uppercase; color: var(--marriott-red);
+  margin-top: var(--s-3);
+}
+.pullquote__ctx {
+  font-family: var(--font-ui); font-size: var(--fs-micro); color: var(--ink-faint);
+  margin-top: var(--s-2); line-height: 1.6; font-style: normal;
+}
+.section--deep .pullquote__vi { color: var(--paper); }
+.section--deep .pullquote__en, .section--deep .pullquote__ctx { color: #A79C90; }
+.section--deep .pullquote__by { color: var(--gold); }
+
+/* Quote gallery */
+.quote-grid { display: grid; gap: var(--s-3); grid-template-columns: 1fr; margin-top: var(--s-5); }
+@media (min-width: 900px) { .quote-grid { grid-template-columns: 1fr 1fr; } }
+.quote-card {
+  border: 1px solid #3A322B; border-radius: var(--radius);
+  padding: var(--s-4); background: #1E1913;
+}
+.quote-card__vi {
+  font-family: var(--font-body); font-size: 1.1rem; line-height: 1.72;
+  font-style: italic; color: var(--paper);
+}
+.quote-card__en {
+  font-family: var(--font-ui); font-size: var(--fs-small); line-height: 1.6;
+  color: #A79C90; margin-top: var(--s-2); padding-top: var(--s-2);
+  border-top: 1px solid #3A322B;
+}
+.quote-card__by {
+  font-family: var(--font-ui); font-size: var(--fs-micro); font-weight: 600;
+  letter-spacing: 0.12em; color: var(--gold); margin-top: var(--s-3); text-transform: uppercase;
+}
+.quote-card__ctx { font-family: var(--font-ui); font-size: var(--fs-micro); color: #8A8078; margin-top: var(--s-1); line-height: 1.6; }
+.quote-card__flag {
+  display: inline-block; font-family: var(--font-ui); font-size: 0.68rem;
+  letter-spacing: 0.06em; color: #C9A227; border: 1px solid #4A4038;
+  border-radius: 100px; padding: 0.15em 0.7em; margin-top: var(--s-2);
+}
+
+/* ---------- 15. Stats band ---------- */
+.stats {
+  display: grid; gap: var(--s-4);
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  margin-top: var(--s-5);
+}
+.stat { border-top: 2px solid var(--gold); padding-top: var(--s-2); }
+.stat__num {
+  font-family: var(--font-ui); font-weight: 800;
+  font-size: clamp(1.9rem, 1.3rem + 2.1vw, 3rem);
+  line-height: 1.1; letter-spacing: -0.02em;
+  font-variant-numeric: tabular-nums;
+  color: var(--paper);
+}
+.stat__label { font-family: var(--font-ui); font-size: var(--fs-small); color: #C4BCB2; margin-top: var(--s-1); line-height: 1.5; }
+.stat__asof { font-family: var(--font-ui); font-size: var(--fs-micro); color: #8A8078; margin-top: var(--s-1); }
+
+/* ---------- 16. Sticky/pinned figure ---------- */
+.pinned { display: grid; gap: var(--s-5); grid-template-columns: 1fr; align-items: start; }
+@media (min-width: 940px) { .pinned { grid-template-columns: 0.92fr 1.08fr; gap: var(--s-7); } }
+.pinned__figure { position: sticky; top: 12vh; }
+.pinned__body > * + * { margin-top: var(--s-4); }
+.pinned__body h3 { margin-bottom: var(--s-2); }
+
+/* ---------- 17. Sources ---------- */
+.srcs { columns: 1; margin-top: var(--s-4); }
+@media (min-width: 780px) { .srcs { columns: 2; column-gap: var(--s-6); } }
+.srcs li {
+  break-inside: avoid; margin-bottom: var(--s-2);
+  font-family: var(--font-ui); font-size: var(--fs-small); line-height: 1.65; color: var(--ink-soft);
+}
+.disclaimer {
+  margin-top: var(--s-6); padding: var(--s-4);
+  border: 1px solid var(--rule); border-radius: var(--radius); background: var(--paper-2);
+}
+.disclaimer h3 { font-size: 1.05rem; margin-bottom: var(--s-2); }
+.disclaimer p { font-size: var(--fs-small); color: var(--ink-soft); line-height: 1.7; }
+
+/* ---------- 18. Footer ---------- */
+.footer {
+  background: var(--ink); color: #A79C90; padding: var(--s-6) 0 var(--s-5);
+  font-family: var(--font-ui); font-size: var(--fs-small); line-height: 1.7;
+}
+.footer a { color: var(--gold); }
+.footer__grid { display: grid; gap: var(--s-4); }
+@media (min-width: 760px) { .footer__grid { grid-template-columns: 1.6fr 1fr; gap: var(--s-6); } }
+.footer__fine { font-size: var(--fs-micro); color: #968B81; margin-top: var(--s-4); padding-top: var(--s-3); border-top: 1px solid #2C2620; }
+
+/* ---------- 19. Reveal animation ---------- */
+.reveal { opacity: 0; transform: translateY(22px); }
+.reveal.is-in {
+  opacity: 1; transform: none;
+  transition: opacity 620ms var(--ease), transform 620ms var(--ease);
+}
+.reveal[data-delay="1"].is-in { transition-delay: 90ms; }
+.reveal[data-delay="2"].is-in { transition-delay: 180ms; }
+.reveal[data-delay="3"].is-in { transition-delay: 270ms; }
+
+/* ---------- 20. Reduced motion — disables everything above ---------- */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+  .reveal { opacity: 1 !important; transform: none !important; }
+  .pinned__figure { position: static; }
+  .timeline__track { scroll-snap-type: none; }
+  .tl-card__detail[hidden] { display: block; }
+}
+
+/* ---------- 21. Print ---------- */
+@media print {
+  .rail, .progress, .scroll-cue, .timeline__filters, .brands__tabs, .hero__grain { display: none !important; }
+  body { background: #fff; color: #000; font-size: 11pt; line-height: 1.55; }
+  .section, .hero { padding: 1.2cm 0; break-inside: avoid; }
+  .section--deep, .section--tint { background: #fff !important; color: #000 !important; }
+  .section--deep h2, .section--deep h3, .stat__num, .quote-card__vi { color: #000 !important; }
+  .quote-card, .brand-card, .tl-card { border: 1px solid #bbb; break-inside: avoid; }
+  .timeline__track { display: block; overflow: visible; }
+  .tl-card { width: 100%; margin-bottom: 0.4cm; }
+  .tl-card__detail, .tl-card__detail[hidden] { display: block !important; }
+  .brands__panel { display: block !important; }
+  .reveal { opacity: 1 !important; transform: none !important; }
+  a[href^="http"]::after { content: " (" attr(href) ")"; font-size: 8pt; color: #555; word-break: break-all; }
+}

@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://example.github.io/bill-marriott-cuoc-doi/sitemap.xml
