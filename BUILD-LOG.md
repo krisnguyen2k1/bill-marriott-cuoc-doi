@@ -183,3 +183,80 @@ separators. No double spaces, no space-before-punctuation. Curly quotes balanced
 6. **Expand the Vietnam section with named local examples.** It currently argues structurally. Naming
    actual Vietnamese groups and their brand-versus-asset positions would make it sharper — but requires
    research I did not have time to source to the same standard as the rest.
+
+---
+
+# POST-LAUNCH AUDIT — 1 August 2026
+
+Run against the live site with a real headless Chrome (Chrome for Testing 149), which the original
+build could not obtain. This closes the "no screenshots / no rendering verification" gap recorded in §4.
+
+## Bugs found and fixed
+
+### 1. Stats could display fabricated figures — **the serious one**
+
+`.stat__num` was rendered as `0` and only counted up to the true value when its
+`IntersectionObserver` fired. Measured on the live site at 390x844:
+
+```
+BEFORE scroll : ['hơn 0', 'gần 0,00 triệu', '0', 'hơn 0', 'khoảng 0', '0', '0,0 tỉ USD', 'hơn 0']
+AFTER  settle : ['hơn 9.800', ..., '66', '0,0 tỉ USD', 'hơn 0']   ← last two never fired
+```
+
+Two failure modes:
+
+- **Anything that does not scroll sees zeros.** Search-engine crawlers, social-card scrapers,
+  reader modes, a stalled `fetch`, or a JS error all render "hơn 0 khách sạn trên toàn cầu".
+- **`threshold: 0.5` never fired for stats low in a narrow viewport.** The Starwood figure
+  (13,6 tỉ USD) and the Bridges figure (21.000) stayed at zero *permanently* on mobile.
+
+On a site whose entire premise is factual accuracy — two-source rule, as-of dates on every
+number, an explicit "sources disagree" table — a decorative animation must never be able to put a
+false figure on screen. This was the worst-behaved thing in the build.
+
+**Fix:** the true value is now rendered in the markup. The count-up drops to zero only at the moment
+the element scrolls into view, then animates back, and lands on an exact value. Observer changed to
+`threshold: 0, rootMargin: '0px 0px -10% 0px'`. Verified: correct before scroll, after scroll, and
+under `prefers-reduced-motion`.
+
+### 2. Citation markers were too small to tap
+
+`a.cite` rendered ~16x12 px of ink. WCAG 2.2 SC 2.5.8 (AA) asks for 24x24. Fixed with an absolutely
+positioned `::after` pinned to exactly 24x24 and centred on the marker — hit area verified in all
+four directions, and body `line-height` measured unchanged at 30.77px.
+
+## What passed
+
+| Check | Result |
+|---|---|
+| Horizontal overflow at 390 / 768 / 1440 | none — `scrollWidth == clientWidth` at every width |
+| Console errors | none at any width |
+| Failed requests (404s) | none |
+| Reveal animation | 112 elements, **none stuck hidden** after a full scroll-through |
+| Keyboard focus | all 30 tab stops have a visible outline; skip-link is first |
+| Heading structure | 85 headings, exactly one `h1`, no level skips |
+| Landmarks / lang | `lang="vi"`, one each of main/nav/header/footer, skip link present |
+| Images | no `img` without `alt`, no `svg[role=img]` without `aria-label` |
+| Mobile timeline | works well — cards snap, next card peeks to signal scrollability |
+
+The horizontal timeline was flagged in §6 as the highest-risk component on mobile. It is fine: at
+390px the cards are ~289px with scroll-snap and the following card visibly peeks in, which is exactly
+the affordance that makes a horizontal scroller discoverable. The era filter chips wrap to two rows
+cleanly.
+
+## Still outstanding
+
+- **The two fixes above are committed locally but not pushed.** GitHub Desktop entered a state where
+  it shows "Publish repository" for an already-published repo and stops responding to Push. The commit
+  is sound; it needs one `git push`.
+- **Lighthouse has still not been run.** Headless Chrome is available now, but the Lighthouse npm
+  package was not installed. No score is claimed anywhere in this repo.
+- **The nav rail puts 14 tab stops before the article.** Not a violation — the skip link is the first
+  stop and works — but a keyboard user who misses it does a lot of tabbing.
+
+## Note for whoever works on this next
+
+Do not run `git` against this repository from a sandboxed/mounted filesystem. Each invocation
+creates `.git/index.lock` and cannot remove it, which then blocks GitHub Desktop with
+"A lock file already exists in the repository". Delete `.git/index.lock` and
+`.git/objects/maintenance.lock` from Windows if you hit it.
