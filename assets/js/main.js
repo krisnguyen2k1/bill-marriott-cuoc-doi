@@ -232,7 +232,7 @@
       const el = document.createElement('div');
       el.className = 'stat';
       el.innerHTML = `
-        <p class="stat__num" data-target="${s.value}" data-dec="${d}">${s.prefix}${fmt(0, d)}${s.suffix || ''}</p>
+        <p class="stat__num" data-target="${s.value}" data-dec="${d}">${s.prefix}${fmt(s.value, d)}${s.suffix || ''}</p>
         <p class="stat__label">${s.label}</p>
         <p class="stat__asof">Tính đến ${s.asOf}${s.note ? ' &middot; ' + s.note : ''}</p>`;
       grid.appendChild(el);
@@ -245,28 +245,36 @@
       el.textContent = `${s.prefix}${fmt(v, d)}${s.suffix || ''}`;
     };
 
-    if (REDUCED) {
-      nums.forEach(el => paint(el, +el.dataset.target));
-      return;
-    }
+    // The markup above already carries the TRUE figure. The count-up is pure
+    // decoration: it drops to zero only at the moment the stat scrolls into
+    // view, then animates back up. If JS stalls, the observer never fires, or a
+    // crawler reads the page, the correct number is what's on screen — never 0.
+    // On a site whose whole premise is factual accuracy, a decorative animation
+    // must not be able to display a wrong figure.
+    if (REDUCED) return;
 
     const countUp = el => {
       const target = +el.dataset.target;
+      const dec = +el.dataset.dec;
       const dur = 1400, t0 = performance.now();
       const tick = now => {
         const p = Math.min((now - t0) / dur, 1);
         const eased = 1 - Math.pow(1 - p, 3);
-        paint(el, +el.dataset.dec ? +(target * eased).toFixed(+el.dataset.dec) : Math.round(target * eased));
+        paint(el, dec ? +(target * eased).toFixed(dec) : Math.round(target * eased));
         if (p < 1) requestAnimationFrame(tick);
+        else paint(el, target);          // guarantee an exact landing
       };
       requestAnimationFrame(tick);
     };
 
+    // threshold 0 + a negative bottom margin: fires as soon as the stat is
+    // meaningfully on screen. The old 0.5 threshold meant tall stats low in a
+    // narrow viewport were never observed at all, and sat at zero forever.
     const io = new IntersectionObserver((entries, obs) => {
       entries.forEach(e => {
         if (e.isIntersecting) { countUp(e.target); obs.unobserve(e.target); }
       });
-    }, { threshold: 0.5 });
+    }, { threshold: 0, rootMargin: '0px 0px -10% 0px' });
     nums.forEach(n => io.observe(n));
   }).catch(err => console.warn('stats:', err.message));
 

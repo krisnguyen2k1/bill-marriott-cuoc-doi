@@ -127,8 +127,22 @@ em { font-style: italic; }
   color: var(--marriott-red);
   text-decoration: none;
   padding-inline: 0.12em;
+  position: relative;
 }
 .cite:hover { text-decoration: underline; }
+/* Citation markers are only ~16x12px of ink — too small to tap reliably
+   (WCAG 2.2 SC 2.5.8 asks for 24x24). This pseudo-element pins the hit area to
+   exactly 24x24 centred on the marker, regardless of the rendered glyph size.
+   It is absolutely positioned, so line-height and text flow are untouched. */
+.cite::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 24px;
+  height: 24px;
+  transform: translate(-50%, -50%);
+}
 
 /* ---------- 5. Reading progress ---------- */
 .progress {
